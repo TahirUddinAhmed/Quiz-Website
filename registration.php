@@ -3,14 +3,41 @@
     // grab input fields 
     $firstName = $_POST['firstname'];
     $lastname = $_POST['lastname'];
-    $username = $_POST['username'];
     $email = $_POST['email'];
     $phone = $_POST['contact'];
     $password = $_POST['password'];
     $retype_pwd = $_POST['retype-password'];
 
     // validate the form 
-    
+    $errors = array();
+
+    if(empty($firstname)) {
+        $errors['errFirst'] = 'First name is required!';
+    }
+
+    if(empty($lastname)) {
+        $errors['errLast'] = "Last name is required!";
+    }
+
+    if(empty($email)) {
+        $errors['errEmail'] = "Email is required";
+    }
+
+    if(empty($password)) {
+        $errors['errPass'] = "Password is required";
+    }
+
+    if(empty($phone)) {
+        $errors['errPhone'] = "Phone number is required";
+    }
+
+    if(empty($retype_pwd)) {
+        $errors['errRetype_pwd'] = "Confirm password is required";
+    }
+
+    if(empty($errors)) {
+        echo "yess, we are good to go";
+    }
  }
 ?>
 <!DOCTYPE html>
@@ -33,30 +60,32 @@
                 <div class="mb-3">
                     <label for="firstname">First Name</label>
                     <input type="text" name="firstname" class="form-control">
+                    <span class="text-danger"><?= $errors['errFirst'] ?? null ?></span>
                 </div>
                 <div class="mb-3">
                     <label for="lastname">Last Name</label>
                     <input type="text" name="lastname" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="username">Username</label>
-                    <input type="text" name="Username" class="form-control">
+                    <span class="text-danger"><?= $errors['errLast'] ?? null ?></span>
                 </div>
                 <div class="mb-3">
                     <label for="email">Email</label>
                     <input type="email" name="email" class="form-control">
+                    <span class="text-danger"><?= $errors['errEmail'] ?? null ?></span>
                 </div>
                 <div class="mb-3">
                     <label for="contact">Contact</label>
                     <input type="phone" name="contact" class="form-control">
+                    <span class="text-danger"><?= $errors['errPhone'] ?? null ?></span>
                 </div>
                 <div class="mb-3">
                     <label for="password">Password</label>
                     <input type="phone" name="password" class="form-control">
+                    <span class="text-danger"><?= $errors['errPass'] ?? null ?></span>
                 </div>
                 <div class="mb-3">
                     <label for="retype-password">Retype Password</label>
                     <input type="phone" name="retype-password" class="form-control">
+                    <span class="text-danger"><?= $errors['errRetype_pwd'] ?? null ?></span>
                 </div>
 
                 <button type="submit" class="register-btn">Register</button>
