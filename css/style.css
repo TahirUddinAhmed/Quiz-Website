@@ -24,7 +24,13 @@
     font-size: 21px;
     font-weight: 500;
 }
+header {
+    background: rgb(61, 111, 239);
+}
 
+header nav {
+    color: white;
+}
 
 @media screen and (max-width: 900px) {
     .register {

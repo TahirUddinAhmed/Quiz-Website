@@ -1,3 +1,18 @@
+<?php
+ if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // grab input fields 
+    $firstName = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $phone = $_POST['contact'];
+    $password = $_POST['password'];
+    $retype_pwd = $_POST['retype-password'];
+
+    // validate the form 
+    
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +29,7 @@
         <h3 class="text-center">Online Quize</h3>
         <h4 class="text-center mb-3">Registration</h4>
         <div class="border p-3 register">
-            <form action="" method="post">
+            <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                 <div class="mb-3">
                     <label for="firstname">First Name</label>
                     <input type="text" name="firstname" class="form-control">
@@ -50,7 +65,7 @@
 
         <div class="mt-2">
             <div class="text-center">
-               <p><strong>Have an Account?</strong> <a href="login.html" class="text-success"> Login</a></p> 
+               <p><strong>Have an Account? <a href="login.html"> Login</a></strong> </p> 
             </div>
         </div>
     </div>

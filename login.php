@@ -33,7 +33,7 @@
         </div>
 
         <div class="mt-3">
-            <p class="text-center"><strong>Don't have an account? <a href="registration.html">Register</a></strong></p>
+            <p class="text-center"><strong>Don't have an account? <a href="registration.php">Register</a></strong></p>
         </div>
     </div>
     
